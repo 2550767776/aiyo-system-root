@@ -27,9 +27,8 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.security.Permission;
+import java.util.*;
 
 /**
  * 接口安全验证，权限验证
@@ -125,7 +124,17 @@ public class HttpAspect {
                         roleIds.add(sysUserRole.getRid());
                     }
                     if (ObjectUtils.isNotEmpty(roleIds)) {
-
+                        Map<Long,List<String>> rolePermissions = (Map<Long, List<String>>) redisTemplate.opsForValue().get(CommonConstant.ROLE_PERMISSION);
+                        Set<Map.Entry<Long, List<String>>> entries = rolePermissions.entrySet();
+                        Set<String> permissionSet = new HashSet<>();
+                        for (Map.Entry<Long, List<String>> entry : entries) {
+                            if (roleIds.contains(entry.getKey())) {
+                                permissionSet.addAll(entry.getValue());
+                            }
+                        }
+                        if (!permissionSet.contains(requiredPermission)) {
+                            throw new Exception("无权操作！");
+                        }
                     } else {
                         throw new Exception("无权操作！");
                     }

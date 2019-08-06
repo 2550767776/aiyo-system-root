@@ -29,4 +29,8 @@ public interface CommonConstant {
      */
     String NOT_VERIFY_TOKEN = "_NOT_VERIFY_TOKEN";
 
+    /**
+     * 存储{rid,lsit<permission>}
+     */
+    String ROLE_PERMISSION = "_ROLE_PERMISSION";
 }
