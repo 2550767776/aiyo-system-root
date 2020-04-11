@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.aiyo.mapper.SysDictionaryMapper">
+<mapper namespace="com.aiyo.basic.mapper.SysDictionaryMapper">
 
 	<!-- 通用查询映射结果 -->
-	<resultMap id="BaseResultMap" type="com.aiyo.entity.SysDictionary">
+	<resultMap id="BaseResultMap" type="com.aiyo.basic.entity.SysDictionary">
 		<id column="id" property="id" />
 		<result column="key_s" property="keyS" />
 		<result column="key_value" property="keyValue" />

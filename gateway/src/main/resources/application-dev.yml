@@ -1,0 +1,71 @@
+server:
+  port: 9020
+
+#eureka 注册中心配置
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://47.94.155.216:9871/eureka
+  healthcheck:
+    enabled: true #开启健康检查（需要spring-boot-starter-actuator依赖）
+  instance:
+    lease-renewal-interval-in-seconds: 1 #服务注册更新时间间隔（默认30秒）
+    lease-expiration-duration-in-seconds: 2 #服务注册到期时间（默认90秒）
+
+#zuul 路由配置
+zuul:
+  host:
+    connect-timeout-millis: 3000
+    socket-timeout-millis: 3000
+#  servlet-path: /
+#  routes:
+#    local:
+#      path: /local/**
+#      url: forward:/local
+#      stripPrefix: false
+#    demo.path: /api/demo/**
+#    demo.serviceId: demo-server
+#    demo.retryable: true
+
+ribbon:
+  ReadTimeout: 3000
+  ConnectTimeout: 3000
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeout-in-milliseconds: 3000
+
+
+#db
+spring:
+#对于redis的支持
+  redis:
+    database: 0
+    host: 118.126.64.86
+    password: tuziyuan_6379
+    port: 6379
+    timeout: 3000       # 连接超时时间 单位 ms（毫秒）
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://rm-2ze02g3fo9gq3rd26so.mysql.rds.aliyuncs.com:3306/chambers?characterEncoding=utf8
+    username: chambers
+    password: chambers*2018
+
+#logging
+logging:
+ #配置日志文件路径
+  path: F:\chambers-cloud-log\gateway-log
+  level:
+   com.hop: debug
+   jdbc:
+     sqltiming: INFO
+     sqlonly: OFF
+     audit: OFF
+     resultset: OFF
+     connection: OFF

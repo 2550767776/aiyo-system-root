@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<artifactId>aiyo-system-root</artifactId>
+		<groupId>com.aiyo</groupId>
+		<version>${project-root.version}</version>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>gateway</artifactId>
+	<version>${chambers-cloud.version}</version>
+
+	<name>${project.artifactId}</name>
+	<description>API网关</description>
+
+	<dependencies>
+		<!--注册中心-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+		<!-- 路由 -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+		</dependency>
+
+		<!-- 工具包 -->
+		<dependency>
+			<groupId>com.aiyo</groupId>
+			<artifactId>common</artifactId>
+			<version>${project-root.version}</version>
+		</dependency>
+
+	</dependencies>
+
+</project>

@@ -7,48 +7,12 @@
         <groupId>com.aiyo</groupId>
         <version>${project-root.version}</version>
     </parent>
+
     <modelVersion>4.0.0</modelVersion>
     <version>${project-root.version}</version>
     <artifactId>admin-servcie</artifactId>
 
     <name>${project.artifactId}</name>
+    <description>admin service modules</description>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.aiyo</groupId>
-            <artifactId>common</artifactId>
-            <version>${project-root.version}</version>
-        </dependency>
-
-
-    </dependencies>
-
-    <build>
-        <finalName>${project.name}</finalName>
-        <plugins>
-            <!-- boot项目打包发布处理插件 -->
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <mainClass>com.aiyo.AdminServiceApplication</mainClass>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-    </build>
-
-    <pluginRepositories>
-        <pluginRepository>
-            <id>alimaven spring plugin</id>
-            <name>alimaven spring plugin</name>
-            <url>https://maven.aliyun.com/repository/spring-plugin</url>
-        </pluginRepository>
-    </pluginRepositories>
 </project>

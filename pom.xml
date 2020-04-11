@@ -12,6 +12,8 @@
     <description>Program root directory</description>
 
     <modules>
+        <module>eureka</module>
+        <module>gateway</module>
         <module>generate</module>
         <module>common</module>
         <module>modules</module>
@@ -19,18 +21,28 @@
 
     <properties>
         <!-- 项目版本号 -->
-        <project-root.version>1.0</project-root.version>
+        <project-root.version>1.0-SNAPSHOT</project-root.version>
+        <!-- 公共版本号配置 -->
         <jdk.version>1.8</jdk.version>
-        <spring-boot.version>2.0.4.RELEASE</spring-boot.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <velocity.version>2.0</velocity.version>
-        <mybatisplus.version>3.0.1</mybatisplus.version>
+        <mybatisplus-spring-boot-starter.version>1.0.4</mybatisplus-spring-boot-starter.version>
+        <mybatis-plus-boot-starter.version>3.0-RC1</mybatis-plus-boot-starter.version>
+        <mybatisplus.version>2.1.0</mybatisplus.version>
         <druid.version>1.1.3</druid.version>
+        <log4jdbc.version>1.2</log4jdbc.version>
         <fastjson.version>1.2.46</fastjson.version>
-        <shiro.version>1.2.4</shiro.version>
-        <pagehelper.version>5.0.0</pagehelper.version>
+        <spring-boot.version>2.0.6.RELEASE</spring-boot.version>
+        <spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
+        <spring-cloud-starter-eureka.version>1.4.5.RELEASE</spring-cloud-starter-eureka.version>
+        <spring-cloud-starter-feign.version>1.4.5.RELEASE</spring-cloud-starter-feign.version>
+        <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
+        <swagger2-ui.version>1.9.6</swagger2-ui.version>
+        <commons-io.version>2.4</commons-io.version>
+        <!--Lombok-->
+        <lombok.version>1.16.20</lombok.version>
+        <!-- jwt -->
         <jwt.version>3.4.0</jwt.version>
-
+        <!--编码格式-->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
     <dependencyManagement>
@@ -39,6 +51,13 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
                 <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -64,10 +83,10 @@
                     <source>${jdk.version}</source><!-- 源代码使用的开发版本 -->
                     <target>${jdk.version}</target><!-- 需要生成的目标class文件的编译版本 -->
                     <encoding>${project.build.sourceEncoding}</encoding>
-                    <!--<compilerArguments>
+                    <compilerArguments>
                         <verbose/>
                         <bootclasspath>${java.home}/lib/rt.jar;${java.home}/lib/jce.jar</bootclasspath>
-                    </compilerArguments>-->
+                    </compilerArguments>
                 </configuration>
             </plugin>
             <!-- boot项目打包发布处理插件 -->
@@ -79,7 +98,13 @@
                 </configuration>
             </plugin>
         </plugins>
-
+        <!-- 是否使用过滤 -->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+            </resource>
+        </resources>
     </build>
 
     <!-- 使用aliyun镜像 -->
