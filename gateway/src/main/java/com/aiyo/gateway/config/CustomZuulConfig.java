@@ -21,9 +21,9 @@ public class CustomZuulConfig {
     @Autowired
     private ZuulProperties zuulProperties;
     @Autowired
-    ServerProperties server;
+    private ServerProperties server;
     @Autowired
-    JdbcTemplate jdbcTemplate;
+    private JdbcTemplate jdbcTemplate;
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
 

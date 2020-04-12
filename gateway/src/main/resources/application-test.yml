@@ -1,77 +1,48 @@
 server:
   port: 9020
 
-#eureka 注册中心配置
+# eureka 注册中心配置
 eureka:
+  instance:
+    ip-address: 127.0.0.1
+    lease-renewal-interval-in-seconds: 5 # 服务注册更新时间间隔（默认30秒）
+    lease-expiration-duration-in-seconds: 10 # 服务注册到期时间（默认90秒）
   client:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://localhost:9871/eureka
+      defaultZone: http://${eureka.instance.ip-address}:${server.port}/eureka
   healthcheck:
-    enabled: true #开启健康检查（需要spring-boot-starter-actuator依赖）
-  instance:
-    lease-renewal-interval-in-seconds: 1 #服务注册更新时间间隔（默认30秒）
-    lease-expiration-duration-in-seconds: 2 #服务注册到期时间（默认90秒）
+    enabled: true # 开启健康检查（需要spring-boot-starter-actuator依赖）
 
-#zuul 路由配置
+# zuul 路由配置
 zuul:
   host:
-    connect-timeout-millis: 9000
-    socket-timeout-millis: 9000
-#  servlet-path: /
-#  routes:
-#    local:
-#      path: /local/**
-#      url: forward:/local
-#      stripPrefix: false
-#    demo.path: /api/demo/**
-#    demo.serviceId: demo-server
-#    demo.retryable: true
+    connect-timeout-millis: 3000
+    socket-timeout-millis: 3000
 
-# 设置ribbon请求时间，防止feign请求超时
-ribbon:
-  ReadTimeout: 3000
-  ConnectTimeout: 3000
-  MaxAutoRetries: 1 #同一台实例最大重试次数,不包括首次调用
-  MaxAutoRetriesNextServer: 1 #重试负载均衡其他的实例最大重试次数,不包括首次调用
-  OkToRetryOnAllOperations: false  #是否所有操作都重试
-
-#hystrix的超时时间
-hystrix:
-    command:
-        default:
-            execution:
-              timeout:
-                enabled: true
-              isolation:
-                    thread:
-                        timeoutInMilliseconds: 9000
-
-#db
+# 数据库配置
 spring:
-#对于redis的支持
   redis:
     database: 0
-    host: 118.126.64.86
-    password: tuziyuan_6379
+    host: 118.24.159.161
+    password: 2550767776
     port: 6379
-    timeout: 3000       # 连接超时时间 单位 ms（毫秒）
+    timeout: 3000 #  连接超时时间 单位 ms（毫秒）
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://rm-2ze02g3fo9gq3rd26so.mysql.rds.aliyuncs.com:3306/chambers?characterEncoding=utf8
-    username: chambers
-    password: chambers*2018
+    url: jdbc:mysql://118.24.159.161.com:3306/aiyo?characterEncoding=utf8
+    username: root
+    password: 2550767776
 
-#logging
+# logging
 logging:
- #配置日志文件路径
-  path: C:\Users\Administrator\Desktop\chambers-cloud\log\gateway-log
+  path: root-log\gateway
   level:
-   com.hop: debug
-   jdbc:
-     sqltiming: INFO
-     sqlonly: OFF
-     audit: OFF
-     resultset: OFF
-     connection: OFF
+    com.aiyo: debug
+    jdbc:
+      sqltiming: INFO
+      sqlonly: OFF
+      audit: OFF
+      resultset: OFF
+      connection: OFF

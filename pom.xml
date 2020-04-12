@@ -37,6 +37,8 @@
         <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
         <swagger2-ui.version>1.9.6</swagger2-ui.version>
         <commons-io.version>2.4</commons-io.version>
+        <shiro.version>1.2.4</shiro.version>
+        <jsoup.version>1.10.3</jsoup.version>
         <!--Lombok-->
         <lombok.version>1.16.20</lombok.version>
         <!-- jwt -->

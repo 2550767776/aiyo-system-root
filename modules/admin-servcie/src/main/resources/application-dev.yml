@@ -33,7 +33,7 @@ mybatis-plus:
       db-type: mysql
     #刷新mapper 调试神器
     refresh: true
-      #自定义填充策略接口实现
+    #自定义填充策略接口实现
     #meta-object-handler: com.baomidou.springboot.xxx
     #自定义SQL注入器
   configuration:

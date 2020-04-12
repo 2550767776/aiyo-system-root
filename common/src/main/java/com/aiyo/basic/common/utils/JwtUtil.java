@@ -1,7 +1,7 @@
 package com.aiyo.basic.common.utils;
 
 import com.aiyo.basic.common.constant.CommonConstant;
-import com.aiyo.basic.vo.UserVo;
+import com.aiyo.basic.pojo.UserDto;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.auth0.jwt.JWT;
@@ -87,8 +87,8 @@ public class JwtUtil {
     /**
      * 获得token中的用户loginId
      */
-    public static UserVo getUserVo(String token) {
-        return JSONObject.parseObject(JwtUtil.getString(token), UserVo.class);
+    public static UserDto getUserVo(String token) {
+        return JSONObject.parseObject(JwtUtil.getString(token), UserDto.class);
     }
 
     /**
@@ -106,7 +106,6 @@ public class JwtUtil {
                 .withClaim(CommonConstant.JWT_KEY, jsonStr)
                 .withExpiresAt(date)
                 .sign(algorithm);
-
     }
 
 }

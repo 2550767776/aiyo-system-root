@@ -1,7 +1,7 @@
 package com.aiyo.gateway.controller;
 
+import com.aiyo.basic.common.result.R;
 import com.aiyo.gateway.service.RefreshRouteService;
-import com.hop.common.result.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.netflix.zuul.web.ZuulHandlerMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,10 +19,11 @@ import java.util.Map;
 @RestController
 @RequestMapping("/route")
 public class RouteController {
+
     @Autowired
-    RefreshRouteService refreshRouteService;
+    private RefreshRouteService refreshRouteService;
     @Autowired
-    ZuulHandlerMapping zuulHandlerMapping;
+    private ZuulHandlerMapping zuulHandlerMapping;
 
     /**
      * 刷新路由
