@@ -11,7 +11,7 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://${eureka.instance.ip-address}:${server.port}/eureka
+      defaultZone: http://${eureka.instance.ip-address}:9010/eureka
   healthcheck:
     enabled: true # 开启健康检查（需要spring-boot-starter-actuator依赖）
 
@@ -31,7 +31,7 @@ spring:
     timeout: 3000 #  连接超时时间 单位 ms（毫秒）
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://118.24.159.161.com:3306/aiyo?characterEncoding=utf8
+    url: jdbc:mysql://118.24.159.161:3306/aiyo?characterEncoding=utf8
     username: root
     password: 2550767776
 
@@ -39,10 +39,10 @@ spring:
 logging:
   path: root-log\gateway
   level:
-   com.aiyo: debug
-   jdbc:
-     sqltiming: INFO
-     sqlonly: OFF
-     audit: OFF
-     resultset: OFF
-     connection: OFF
+    com.aiyo: debug
+    jdbc:
+      sqltiming: INFO
+      sqlonly: OFF
+      audit: OFF
+      resultset: OFF
+      connection: OFF

@@ -2,6 +2,7 @@ package com.aiyo.gateway.entity;
 
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -13,7 +14,7 @@ import java.util.Date;
  * @since 2018-12-01
  */
 @Data
-public class GatewayApi {
+public class GatewayApi implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

@@ -25,7 +25,7 @@ public class CustomZuulConfig {
     @Autowired
     private JdbcTemplate jdbcTemplate;
     @Autowired
-    private RedisTemplate<String, Object> redisTemplate;
+    private RedisTemplate redisTemplate;
 
     @Bean
     public CustomRouteLocator routeLocator() {
