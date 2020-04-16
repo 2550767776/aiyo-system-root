@@ -15,7 +15,6 @@ import lombok.extern.slf4j.Slf4j;
  * @author ylc
  * @since 2019-08-01
  */
-@Service
 @Slf4j
 public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, SysRole> implements ISysRoleService {
 
