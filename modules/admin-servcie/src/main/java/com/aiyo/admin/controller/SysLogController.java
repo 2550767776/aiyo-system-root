@@ -18,7 +18,7 @@ import java.util.List;
  * @since 2019-08-01
  */
 @RestController
-@RequestMapping("/api/sysLog")
+@RequestMapping("/sysLog")
 public class SysLogController {
     @GetMapping("/list")
     public List<SysLog> list() {

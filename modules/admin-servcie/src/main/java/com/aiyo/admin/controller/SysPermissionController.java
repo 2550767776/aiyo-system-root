@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @since 2019-08-01
  */
 @RestController
-@RequestMapping("/api/sysPermission")
+@RequestMapping("/sysPermission")
 public class SysPermissionController {
 
 }

@@ -38,6 +38,7 @@
         <commons-io.version>2.4</commons-io.version>
         <shiro.version>1.2.4</shiro.version>
         <jsoup.version>1.10.3</jsoup.version>
+        <web-jwt.version>0.9.1</web-jwt.version>
         <!--Lombok-->
         <lombok.version>1.16.20</lombok.version>
         <!-- jwt -->
