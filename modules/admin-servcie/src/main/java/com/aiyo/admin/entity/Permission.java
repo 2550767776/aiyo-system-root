@@ -12,7 +12,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 运营商管理员角色表
+ * permission 权限表
  * </p>
  *
  * @author ylc
@@ -21,8 +21,8 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("t_sys_role")
-public class SysRole extends Model<SysRole> {
+@TableName("t_sys_permission")
+public class Permission extends Model<Permission> {
 
     private static final long serialVersionUID = 1L;
 
@@ -33,19 +33,19 @@ public class SysRole extends Model<SysRole> {
     private Long id;
 
     /**
-     * 角色名
+     * 上级ID
+     */
+    private Long pid;
+
+    /**
+     * 权限名
      */
     private String name;
 
     /**
-     * 企业id(如是平台管理员创建的则为0)
+     * 类型 0、模块，1 、目录，2、菜单，3、按钮
      */
-    private Long cid;
-
-    /**
-     * 部门id(默认为0：平台角色，其他就是对应的机构的部门id)
-     */
-    private Long did;
+    private Integer type;
 
     /**
      * 排序
@@ -53,14 +53,34 @@ public class SysRole extends Model<SysRole> {
     private Integer sort;
 
     /**
+     * 地址
+     */
+    private String url;
+
+    /**
+     * 权限编码
+     */
+    private String permCode;
+
+    /**
+     * 图标
+     */
+    private String icon;
+
+    /**
      * 描述
      */
     private String description;
 
     /**
-     * 角色状态，0：禁用，1：启用
+     * 状态 0、禁用 1、正常
      */
     private Integer status;
+
+    /**
+     * 是否运营商后台权限（0：否，1：是）
+     */
+    private Integer isOperator;
 
     /**
      * 创建时间

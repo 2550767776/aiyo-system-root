@@ -1,6 +1,6 @@
 package com.aiyo.admin.service;
 
-import com.aiyo.admin.entity.SysPermission;
+import com.aiyo.admin.entity.Permission;
 import com.baomidou.mybatisplus.extension.service.IService;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +13,6 @@ import org.springframework.stereotype.Service;
  * @since 2019-08-01
  */
 @Service
-public interface ISysPermissionService extends IService<SysPermission> {
+public interface ISysPermissionService extends IService<Permission> {
 
 }

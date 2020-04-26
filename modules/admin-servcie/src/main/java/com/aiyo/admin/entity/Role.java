@@ -1,18 +1,19 @@
 package com.aiyo.admin.entity;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.extension.activerecord.Model;
-import java.util.Date;
 import com.baomidou.mybatisplus.annotation.TableId;
-import java.io.Serializable;
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 
+import java.io.Serializable;
+import java.util.Date;
+
 /**
  * <p>
- * permission 权限表
+ * 运营商管理员角色表
  * </p>
  *
  * @author ylc
@@ -21,8 +22,8 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("t_sys_permission")
-public class SysPermission extends Model<SysPermission> {
+@TableName("t_sys_role")
+public class Role extends Model<Role> {
 
     private static final long serialVersionUID = 1L;
 
@@ -33,19 +34,19 @@ public class SysPermission extends Model<SysPermission> {
     private Long id;
 
     /**
-     * 上级ID
-     */
-    private Long pid;
-
-    /**
-     * 权限名
+     * 角色名
      */
     private String name;
 
     /**
-     * 类型 0、模块，1 、目录，2、菜单，3、按钮
+     * 企业id(如是平台管理员创建的则为0)
      */
-    private Integer type;
+    private Long cid;
+
+    /**
+     * 部门id(默认为0：平台角色，其他就是对应的机构的部门id)
+     */
+    private Long did;
 
     /**
      * 排序
@@ -53,34 +54,14 @@ public class SysPermission extends Model<SysPermission> {
     private Integer sort;
 
     /**
-     * 地址
-     */
-    private String url;
-
-    /**
-     * 权限编码
-     */
-    private String permCode;
-
-    /**
-     * 图标
-     */
-    private String icon;
-
-    /**
      * 描述
      */
     private String description;
 
     /**
-     * 状态 0、禁用 1、正常
+     * 角色状态，0：禁用，1：启用
      */
     private Integer status;
-
-    /**
-     * 是否运营商后台权限（0：否，1：是）
-     */
-    private Integer isOperator;
 
     /**
      * 创建时间

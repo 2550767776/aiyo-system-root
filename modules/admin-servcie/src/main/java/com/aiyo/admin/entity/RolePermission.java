@@ -22,7 +22,7 @@ import lombok.experimental.Accessors;
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
 @TableName("t_sys_role_permission")
-public class SysRolePermission extends Model<SysRolePermission> {
+public class RolePermission extends Model<RolePermission> {
 
     private static final long serialVersionUID = 1L;
 

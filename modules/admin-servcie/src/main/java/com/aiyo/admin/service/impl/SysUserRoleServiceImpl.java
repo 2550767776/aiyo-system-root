@@ -1,10 +1,9 @@
 package com.aiyo.admin.service.impl;
 
-import com.aiyo.admin.entity.SysUserRole;
+import com.aiyo.admin.entity.UserRole;
 import com.aiyo.admin.mapper.SysUserRoleMapper;
 import com.aiyo.admin.service.ISysUserRoleService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.springframework.stereotype.Service;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -16,6 +15,6 @@ import lombok.extern.slf4j.Slf4j;
  * @since 2019-08-01
  */
 @Slf4j
-public class SysUserRoleServiceImpl extends ServiceImpl<SysUserRoleMapper, SysUserRole> implements ISysUserRoleService {
+public class SysUserRoleServiceImpl extends ServiceImpl<SysUserRoleMapper, UserRole> implements ISysUserRoleService {
 
 }

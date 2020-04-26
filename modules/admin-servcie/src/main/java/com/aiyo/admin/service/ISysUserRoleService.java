@@ -1,6 +1,6 @@
 package com.aiyo.admin.service;
 
-import com.aiyo.admin.entity.SysUserRole;
+import com.aiyo.admin.entity.UserRole;
 import com.baomidou.mybatisplus.extension.service.IService;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +13,6 @@ import org.springframework.stereotype.Service;
  * @since 2019-08-01
  */
 @Service
-public interface ISysUserRoleService extends IService<SysUserRole> {
+public interface ISysUserRoleService extends IService<UserRole> {
 
 }

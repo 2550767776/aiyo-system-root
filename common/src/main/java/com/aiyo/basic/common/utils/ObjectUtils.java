@@ -118,7 +118,6 @@ public class ObjectUtils {
      * @return true 合规 false 不合规
      */
     public static boolean isEmailFormat(String email) {
-
         Pattern pattern = Pattern
                 .compile("^([a-z0-9A-Z]+[-|\\.]?)+[a-z0-9A-Z]@([a-z0-9A-Z]+(-[a-z0-9A-Z]+)?\\.)+[a-zA-Z]{2,}$");
         Matcher matcher = pattern.matcher(email);
@@ -183,6 +182,7 @@ public class ObjectUtils {
 
     /**
      * 将对象转为Map
+     *
      * @param obj
      * @return
      * @throws Exception
@@ -204,13 +204,13 @@ public class ObjectUtils {
         }
         return map;
     }
+
     //map转对象
     public static Object mapToObject(Map<String, Object> map, Class<?> beanClass) throws Exception {
-        if (map == null)
+        if (map == null) {
             return null;
-
+        }
         Object obj = beanClass.newInstance();
-
         BeanInfo beanInfo = Introspector.getBeanInfo(obj.getClass());
         PropertyDescriptor[] propertyDescriptors = beanInfo.getPropertyDescriptors();
         for (PropertyDescriptor property : propertyDescriptors) {
@@ -219,7 +219,6 @@ public class ObjectUtils {
                 setter.invoke(obj, map.get(property.getName()));
             }
         }
-
         return obj;
     }
 

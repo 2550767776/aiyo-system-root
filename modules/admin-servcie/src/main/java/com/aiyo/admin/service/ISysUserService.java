@@ -1,6 +1,6 @@
 package com.aiyo.admin.service;
 
-import com.aiyo.admin.entity.SysUser;
+import com.aiyo.admin.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +13,22 @@ import org.springframework.stereotype.Service;
  * @since 2019-08-01
  */
 @Service
-public interface ISysUserService extends IService<SysUser> {
+public interface ISysUserService extends IService<User> {
+
+    /**
+     * 修改用户
+     *
+     * @param user
+     * @return
+     */
+    boolean updateUser(User user);
+
+    /**
+     * 删除用户表并且删除用户角色关联表数据
+     *
+     * @param id
+     * @return
+     */
+    public boolean deleteUserByIdAndRole(String id);
 
 }

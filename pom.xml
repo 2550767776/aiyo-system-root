@@ -91,14 +91,6 @@
                     </compilerArguments>
                 </configuration>
             </plugin>
-            <!-- boot项目打包发布处理插件 -->
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <fork>true</fork>
-                </configuration>
-            </plugin>
         </plugins>
         <!-- 是否使用过滤 -->
         <resources>
@@ -109,19 +101,4 @@
         </resources>
     </build>
 
-    <!-- 使用aliyun镜像 -->
-    <repositories>
-        <repository>
-            <id>aliyun</id>
-            <name>aliyun</name>
-            <url>http://maven.aliyun.com/nexus/content/groups/public</url>
-        </repository>
-    </repositories>
-    <pluginRepositories>
-        <pluginRepository>
-            <id>alimaven spring plugin</id>
-            <name>alimaven spring plugin</name>
-            <url>https://maven.aliyun.com/repository/spring-plugin</url>
-        </pluginRepository>
-    </pluginRepositories>
 </project>

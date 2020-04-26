@@ -31,6 +31,46 @@ public class R extends HashMap<String, Object> {
         return r;
     }
 
+    public static R data(Object object) {
+        R r = new R();
+        r.put("success", true);
+        r.put("code", HttpStatus.SC_OK);
+        r.put(ResultMsgConstant.DATA_RESULT_KEY, object);
+        return r;
+    }
+
+    public static R list(Object object) {
+        R r = new R();
+        r.put("success", true);
+        r.put("code", HttpStatus.SC_OK);
+        r.put(ResultMsgConstant.LIST_RESULT_KEY, object);
+        return r;
+    }
+
+    public static R page(Object object) {
+        R r = new R();
+        r.put("success", true);
+        r.put("code", HttpStatus.SC_OK);
+        r.put(ResultMsgConstant.PAGE_RESULT_KEY, object);
+        return r;
+    }
+
+    public static R rows(Object object) {
+        R r = new R();
+        r.put("success", true);
+        r.put("code", HttpStatus.SC_OK);
+        r.put(ResultMsgConstant.ROWS_RESULT_KEY, object);
+        return r;
+    }
+
+    public static R total(Object object) {
+        R r = new R();
+        r.put("success", true);
+        r.put("code", HttpStatus.SC_OK);
+        r.put(ResultMsgConstant.TOTAL_RESULT_KEY, object);
+        return r;
+    }
+
     /**
      * 系统错误
      *

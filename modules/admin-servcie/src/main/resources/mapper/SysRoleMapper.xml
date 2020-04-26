@@ -3,7 +3,7 @@
 <mapper namespace="com.aiyo.admin.mapper.SysRoleMapper">
 
 	<!-- 通用查询映射结果 -->
-	<resultMap id="BaseResultMap" type="com.aiyo.admin.entity.SysRole">
+	<resultMap id="BaseResultMap" type="com.aiyo.admin.entity.Role">
 		<id column="id" property="id" />
 		<result column="name" property="name" />
 		<result column="cid" property="cid" />

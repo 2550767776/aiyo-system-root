@@ -1,10 +1,9 @@
 package com.aiyo.admin.service.impl;
 
-import com.aiyo.admin.entity.SysPermission;
+import com.aiyo.admin.entity.Permission;
 import com.aiyo.admin.mapper.SysPermissionMapper;
 import com.aiyo.admin.service.ISysPermissionService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import org.springframework.stereotype.Service;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -16,6 +15,6 @@ import lombok.extern.slf4j.Slf4j;
  * @since 2019-08-01
  */
 @Slf4j
-public class SysPermissionServiceImpl extends ServiceImpl<SysPermissionMapper, SysPermission> implements ISysPermissionService {
+public class SysPermissionServiceImpl extends ServiceImpl<SysPermissionMapper, Permission> implements ISysPermissionService {
 
 }

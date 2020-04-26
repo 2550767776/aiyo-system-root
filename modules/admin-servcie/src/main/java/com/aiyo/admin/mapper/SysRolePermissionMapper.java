@@ -1,6 +1,6 @@
 package com.aiyo.admin.mapper;
 
-import com.aiyo.admin.entity.SysRolePermission;
+import com.aiyo.admin.entity.RolePermission;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author ylc
  * @since 2019-08-01
  */
-public interface SysRolePermissionMapper extends BaseMapper<SysRolePermission> {
+public interface SysRolePermissionMapper extends BaseMapper<RolePermission> {
 
 }

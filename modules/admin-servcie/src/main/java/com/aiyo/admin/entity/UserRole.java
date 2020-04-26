@@ -12,7 +12,7 @@ import lombok.experimental.Accessors;
 
 /**
  * <p>
- * 用户基本信息表
+ * 用户角色关联表
  * </p>
  *
  * @author ylc
@@ -21,8 +21,8 @@ import lombok.experimental.Accessors;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("t_sys_user")
-public class SysUser extends Model<SysUser> {
+@TableName("t_sys_user_role")
+public class UserRole extends Model<UserRole> {
 
     private static final long serialVersionUID = 1L;
 
@@ -33,44 +33,14 @@ public class SysUser extends Model<SysUser> {
     private Long id;
 
     /**
-     * 用户名
+     * 用户ID
      */
-    private String username;
+    private Long uid;
 
     /**
-     * 昵称
+     * 角色ID
      */
-    private String nickname;
-
-    /**
-     * 密码
-     */
-    private String password;
-
-    /**
-     * 盐
-     */
-    private String salt;
-
-    /**
-     * 微信绑定手机号
-     */
-    private String wxTel;
-
-    /**
-     * 常用手机号
-     */
-    private String tel;
-
-    /**
-     * 邮箱
-     */
-    private String email;
-
-    /**
-     * 0、禁用 1、正常
-     */
-    private Integer status;
+    private Long rid;
 
     /**
      * 创建时间
@@ -81,21 +51,6 @@ public class SysUser extends Model<SysUser> {
      * 修改时间
      */
     private Date gmtModified;
-
-    /**
-     * 0:超级管理员，1:运营商超级管理员，2：普通管理员，100：普通用户
-     */
-    private Integer type;
-
-    /**
-     * 版本号
-     */
-    private Long version;
-
-    /**
-     * 是否删除（0未删除，1删除）
-     */
-    private Integer isDelete;
 
 
     @Override
