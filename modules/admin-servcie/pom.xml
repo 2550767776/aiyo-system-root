@@ -17,6 +17,12 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.aiyo</groupId>
+            <artifactId>common</artifactId>
+            <version>${project-root.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>

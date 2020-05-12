@@ -1,13 +1,13 @@
-package com.aiyo.admin;
+package com.vtest;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.aiyo.admin.mapper","com.aiyo.admin.config"})
-public class AdminServiceApplication {
+@ComponentScan(basePackages = {"com.vtest"})
+public class TsetServiceApplication {
     public static void main(String[] args) {
-        SpringApplication.run(AdminServiceApplication.class, args);
+        SpringApplication.run(TsetServiceApplication.class, args);
     }
 }

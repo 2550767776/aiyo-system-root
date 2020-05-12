@@ -17,15 +17,9 @@
 
     <modules>
         <module>admin-servcie</module>
+        <module>test-services</module>
     </modules>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.aiyo</groupId>
-            <artifactId>common</artifactId>
-            <version>${project-root.version}</version>
-        </dependency>
-    </dependencies>
 
 </project>
 
