@@ -26,9 +26,9 @@ public interface ISysUserService extends IService<User> {
     /**
      * 删除用户表并且删除用户角色关联表数据
      *
-     * @param id
+     * @param ids
      * @return
      */
-    public boolean deleteUserByIdAndRole(String id);
+    public boolean deleteUserByIdAndRole(String ids);
 
 }

@@ -16,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -39,19 +40,15 @@ public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, Role> impleme
 
     @Transactional
     @Override
-    public boolean deleteRoleByIdAndPermission(String id) {
+    public boolean deleteRoleByIdAndPermission(String ids) {
         // 拼接角色表删除list
-        String[] split = id.split(",");
-        List<String> userId = new ArrayList<>();
-        Collections.addAll(userId, split);
+        String[] split = ids.split(",");
         // 删除角色表
-        Integer integer = baseMapper.deleteBatchIds(userId);
-
+        Integer integer = baseMapper.deleteBatchIds(Arrays.asList(split));
         // 删除角权限关联表数据
         QueryWrapper<RolePermission> permissionQueryWrapper = new QueryWrapper<>();
-        permissionQueryWrapper.in("rid", id);
+        permissionQueryWrapper.in("rid", ids);
         rolePermissionMapper.delete(permissionQueryWrapper);
-
         return true;
     }
 

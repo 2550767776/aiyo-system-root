@@ -20,8 +20,10 @@ import java.util.List;
 @RestController
 @RequestMapping("/sysLog")
 public class SysLogController {
+
     @GetMapping("/list")
     public List<SysLog> list() {
         return new SysLog().selectAll();
     }
+
 }

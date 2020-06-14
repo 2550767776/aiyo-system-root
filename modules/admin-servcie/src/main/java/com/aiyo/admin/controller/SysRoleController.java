@@ -35,7 +35,7 @@ public class SysRoleController {
     private ISysUserRoleService iUserRoleService;
 
     /**
-     * 获取角色列表
+     * 获取列表
      *
      * @param pageNumber 当前页
      * @param pageSize   每页显示条数
@@ -59,7 +59,7 @@ public class SysRoleController {
     }
 
     /**
-     * 添加用户
+     * 添加
      *
      * @param role
      * @return
@@ -71,7 +71,7 @@ public class SysRoleController {
     }
 
     /**
-     * 修改用户
+     * 修改
      *
      * @param role
      * @return
@@ -83,22 +83,21 @@ public class SysRoleController {
     }
 
     /**
-     * 删除角色
+     * 删除
      *
-     * @param id
+     * @param ids
      * @return
      */
     @ResponseBody
     @GetMapping("/delete")
-    public R delete(@RequestParam(value = "id", required = false) String id) {
-        if (StringUtil.isEmpty(id)) {
+    public R delete(@RequestParam(value = "ids", required = false) String ids) {
+        if (StringUtil.isEmpty(ids)) {
             return R.error("请选择数据");
         }
-        return iRoleService.deleteRoleByIdAndPermission(id) ? R.ok("删除成功") : R.error("删除失败");
+        return iRoleService.deleteRoleByIdAndPermission(ids) ? R.ok("删除成功") : R.error("删除失败");
     }
 
     /**
-     * 分配角色
      * 查询用户拥有的角色
      *
      * @return

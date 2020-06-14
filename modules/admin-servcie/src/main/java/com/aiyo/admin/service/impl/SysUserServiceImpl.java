@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -37,17 +38,14 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, User> impleme
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public boolean deleteUserByIdAndRole(String id) {
+    public boolean deleteUserByIdAndRole(String ids) {
         // 拼接用户表删除list
-        String[] split = id.split(",");
-        List<String> userId = new ArrayList<>();
-        Collections.addAll(userId, split);
+        String[] split = ids.split(",");
         // 删除用户表数据
-        Integer integer = baseMapper.deleteBatchIds(userId);
-
+        Integer integer = baseMapper.deleteBatchIds(Arrays.asList(split));
         // 删除用户角色关联表数据
         QueryWrapper<UserRole> userRoleEntityWrapper = new QueryWrapper<>();
-        userRoleEntityWrapper.in("uid", id);
+        userRoleEntityWrapper.in("uid", ids);
         userRoleMapper.delete(userRoleEntityWrapper);
         return true;
     }

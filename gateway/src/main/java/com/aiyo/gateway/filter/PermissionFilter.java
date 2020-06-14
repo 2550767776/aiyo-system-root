@@ -84,8 +84,8 @@ public class PermissionFilter extends ZuulFilter {
         }
         Claims claims;
         try {
-            //claims = JwtTokenUtils.token(request.getHeader(JwtTokenUtils.header)).claims();
-            //log.info("->认证信息：{}", claims);
+            claims = JwtTokenUtils.claims(request.getHeader(JwtTokenUtils.header));
+            log.info("->认证信息：{}", claims);
         } catch (ExpiredJwtException e) {
             log.error("用户登陆信息过期：{}", e.getMessage());
             printError(requestContext, 601, "用户登陆信息过期");
@@ -115,4 +115,5 @@ public class PermissionFilter extends ZuulFilter {
         requestContext.getResponse().setHeader("Content-type", "application/json;charset=UTF-8");
         requestContext.setResponseBody(JSON.toJSONString(R.error(code, message)));
     }
+
 }

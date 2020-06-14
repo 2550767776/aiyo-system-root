@@ -30,7 +30,7 @@ public class SysUserController {
     private ISysUserService iUserService;
 
     /**
-     * 获取用户列表
+     * 获取列表
      *
      * @param pageNumber 当前页
      * @param pageSize   每页显示条数
@@ -57,7 +57,7 @@ public class SysUserController {
     }
 
     /**
-     * 添加用户
+     * 添加
      *
      * @param user
      * @return
@@ -74,7 +74,7 @@ public class SysUserController {
     }
 
     /**
-     * 修改用户
+     * 修改
      *
      * @param user
      * @return
@@ -86,18 +86,18 @@ public class SysUserController {
     }
 
     /**
-     * 删除用户
+     * 删除
      *
-     * @param id
+     * @param ids
      * @return
      */
     @ResponseBody
     @GetMapping("/delete")
-    public R delete(@RequestParam(value = "id", required = false) String id) {
-        if (StringUtil.isEmpty(id)) {
+    public R delete(@RequestParam(value = "ids", required = false) String ids) {
+        if (StringUtil.isEmpty(ids)) {
             return R.error("请选择数据");
         }
-        return iUserService.deleteUserByIdAndRole(id) ? R.ok("删除成功") : R.error("删除失败");
+        return iUserService.deleteUserByIdAndRole(ids) ? R.ok("删除成功") : R.error("删除失败");
     }
 
     /**

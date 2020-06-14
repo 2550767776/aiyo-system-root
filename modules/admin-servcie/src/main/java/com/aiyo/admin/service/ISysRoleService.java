@@ -23,7 +23,7 @@ public interface ISysRoleService extends IService<Role> {
      * @param id
      * @return
      */
-    boolean deleteRoleByIdAndPermission(String id);
+    boolean deleteRoleByIdAndPermission(String ids);
 
     /**
      * 分配用户角色
