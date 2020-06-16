@@ -13,6 +13,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
@@ -28,6 +29,7 @@ import java.util.List;
  * @author ylc
  * @since 2019-08-01
  */
+@Service
 @Slf4j
 public class SysRoleServiceImpl extends ServiceImpl<SysRoleMapper, Role> implements ISysRoleService {
 

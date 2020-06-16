@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
  * @author ylc
  * @since 2019-08-01
  */
-@Service
 public interface ISysLogService extends IService<SysLog> {
 
 }

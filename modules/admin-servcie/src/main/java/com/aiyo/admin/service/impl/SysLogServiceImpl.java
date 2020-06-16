@@ -15,6 +15,7 @@ import lombok.extern.slf4j.Slf4j;
  * @author ylc
  * @since 2019-08-01
  */
+@Service
 @Slf4j
 public class SysLogServiceImpl extends ServiceImpl<SysLogMapper, SysLog> implements ISysLogService {
 

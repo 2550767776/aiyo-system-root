@@ -2,6 +2,8 @@ package com.aiyo.admin.mapper;
 
 import com.aiyo.admin.entity.Role;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 
 /**
  * <p>
@@ -11,6 +13,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author ylc
  * @since 2019-08-01
  */
+@Mapper
+@Repository
 public interface SysRoleMapper extends BaseMapper<Role> {
 
 }

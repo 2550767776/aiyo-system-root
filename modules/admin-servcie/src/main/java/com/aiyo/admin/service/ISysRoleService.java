@@ -15,12 +15,11 @@ import java.util.List;
  * @author ylc
  * @since 2019-08-01
  */
-@Service
 public interface ISysRoleService extends IService<Role> {
     /**
      * 删除角色表并且删除角色权限表关联数据
      *
-     * @param id
+     * @param ids
      * @return
      */
     boolean deleteRoleByIdAndPermission(String ids);
