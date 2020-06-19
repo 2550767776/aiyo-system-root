@@ -9,6 +9,7 @@ import com.netflix.zuul.exception.ZuulException;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Arrays;
@@ -18,17 +19,16 @@ import static org.springframework.cloud.netflix.zuul.filters.support.FilterConst
 import static org.springframework.cloud.netflix.zuul.filters.support.FilterConstants.SERVLET_DETECTION_FILTER_ORDER;
 
 @Slf4j
+@Component
 public class PermissionFilter extends ZuulFilter {
 
-    // 无需token验证的URL
+    // 无需token验证的URL（数据库中动态配置更适合）
     public static List<String> noTokenUrls = Arrays.asList(
-            "/accountcenter/base/file"
-            , "/accountcenter/base/dictionary"
+            "/admin/user/login"
     );
     // 无需权限验证的URL
     public static List<String> noPermissionUrls = Arrays.asList(
-            "12"
-            , "12"
+            "/test"
     );
 
     /**

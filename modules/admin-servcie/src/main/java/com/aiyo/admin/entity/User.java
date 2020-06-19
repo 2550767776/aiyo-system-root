@@ -53,16 +53,6 @@ public class User extends Model<User> {
     private String salt;
 
     /**
-     * 微信绑定手机号
-     */
-    private String wxTel;
-
-    /**
-     * 常用手机号
-     */
-    private String tel;
-
-    /**
      * 邮箱
      */
     private String email;

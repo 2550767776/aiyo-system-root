@@ -1,7 +1,5 @@
 server:
   port: 9040
-  servlet:
-    context-path: /adminService
 
 # eureka 注册中心配置
 eureka:

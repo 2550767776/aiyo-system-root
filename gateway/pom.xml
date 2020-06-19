@@ -9,7 +9,7 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>gateway</artifactId>
-	<version>${chambers-cloud.version}</version>
+	<version>${project-root.version}</version>
 
 	<name>${project.artifactId}</name>
 	<description>API网关</description>

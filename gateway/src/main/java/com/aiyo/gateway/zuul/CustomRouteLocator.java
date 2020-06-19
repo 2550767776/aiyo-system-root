@@ -39,7 +39,7 @@ public class CustomRouteLocator extends SimpleRouteLocator implements Refreshabl
     public CustomRouteLocator(String servletPath, ZuulProperties properties) {
         super(servletPath, properties);
         this.properties = properties;
-        log.info("--------------------servletPath:{}", servletPath);
+        log.info("=v= servletPath:{}", servletPath);
     }
 
     @Override
@@ -78,7 +78,7 @@ public class CustomRouteLocator extends SimpleRouteLocator implements Refreshabl
         List<GatewayApi> results;
 
         List<GatewayApi> obj = (List<GatewayApi>) redisTemplate.opsForValue().get(CommonConstant.ROUTE_KEY);
-        log.info("-----------routes:{}", JSON.toJSONString(obj));
+        log.info("=v= routes:{}", JSON.toJSONString(obj));
 
         if (ObjectUtils.isEmpty(obj)) {
             results = jdbcTemplate.query("select * from gateway_api where enabled = true and is_delete = 0 ", new BeanPropertyRowMapper<>(GatewayApi.class));
@@ -115,8 +115,7 @@ public class CustomRouteLocator extends SimpleRouteLocator implements Refreshabl
             } catch (Exception e) {
                 log.error("从数据库加载路由配置异常", e);
             }
-            log.error("添加数据库自定义的路由配置,result：{}", result.toString());
-            log.error("添加数据库自定义的路由配置,path：{}，serviceId:{}", zuulRoute.getPath(), zuulRoute.getServiceId());
+            log.info("添加数据库自定义的路由配置,path：{},serviceId：{},result：{}", zuulRoute.getPath(), zuulRoute.getServiceId(), result.toString());
             routes.put(zuulRoute.getPath(), zuulRoute);
         }
         return routes;

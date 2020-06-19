@@ -30,7 +30,7 @@ public class JwtTokenUtils {
         long expiration = isRemember ? EXPIRATION_REMEMBER : EXPIRATION;
         JwtBuilder builder = Jwts.builder().signWith(SignatureAlgorithm.HS512, Secret.getBytes())
                 .setIssuer(ISS)
-                .setSubject(paramList.get("id"))
+                .setSubject(paramList.get("userId"))
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + expiration * 1000));
         // 加入参数列表

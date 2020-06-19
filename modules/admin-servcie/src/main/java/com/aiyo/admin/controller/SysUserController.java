@@ -4,7 +4,10 @@ package com.aiyo.admin.controller;
 import com.aiyo.admin.entity.User;
 import com.aiyo.admin.service.ISysUserService;
 import com.aiyo.basic.common.result.R;
+import com.aiyo.basic.common.utils.JwtTokenUtils;
+import com.aiyo.basic.common.utils.ObjectUtils;
 import com.aiyo.basic.common.utils.StringUtil;
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.apache.shiro.crypto.hash.SimpleHash;
@@ -12,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -30,6 +34,30 @@ public class SysUserController {
     private ISysUserService iUserService;
 
     /**
+     * 登录
+     */
+    @PostMapping(value = "/login")
+    public R login(String username, String password) {
+        QueryWrapper<User> wrapper = new QueryWrapper<>();
+        wrapper.eq("username", username);
+        wrapper.eq("is_delete", 0);
+        List<User> list = iUserService.list(wrapper);
+        if (ObjectUtils.isNotEmpty(list)) {
+            User user = list.get(0);
+            SimpleHash pwd = new SimpleHash("MD5", password, user.getSalt());
+            if (pwd.toString().equals(user.getPassword())) {
+                // 生成token
+                Map<String, String> perm = new HashMap<>();
+                perm.put("userId", user.getId().toString());
+                perm.put("userName", user.getUsername());
+                String token = JwtTokenUtils.token(perm);
+                return R.ok("登录成功").put("token", token);
+            }
+        }
+        return R.error("登录失败");
+    }
+
+    /**
      * 获取列表
      *
      * @param pageNumber 当前页
@@ -37,7 +65,6 @@ public class SysUserController {
      * @param searchText 搜索名称
      * @return
      */
-    @ResponseBody
     @GetMapping("/list")
     public Map<String, Object> getUserList(Integer pageNumber, Integer pageSize, String searchText) {
         Map<String, Object> result = new HashMap<>();
@@ -62,7 +89,6 @@ public class SysUserController {
      * @param user
      * @return
      */
-    @ResponseBody
     @PostMapping(value = "/add")
     public R addSysUser(User user) {
         // 创建盐, 散列加密
@@ -79,7 +105,6 @@ public class SysUserController {
      * @param user
      * @return
      */
-    @ResponseBody
     @PostMapping(value = "/update")
     public R updateUser(User user) {
         return iUserService.updateById(user) ? R.ok("修改成功") : R.error("修改失败");
@@ -91,7 +116,6 @@ public class SysUserController {
      * @param ids
      * @return
      */
-    @ResponseBody
     @GetMapping("/delete")
     public R delete(@RequestParam(value = "ids", required = false) String ids) {
         if (StringUtil.isEmpty(ids)) {
@@ -106,7 +130,6 @@ public class SysUserController {
      * @param user
      * @return
      */
-    @ResponseBody
     @PostMapping("/resetPwd")
     public R resetPS(@RequestBody User user) {
         // 创建盐, 散列加密

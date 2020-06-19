@@ -42,7 +42,6 @@ public class SysRoleController {
      * @param searchText 搜索名称
      * @return
      */
-    @ResponseBody
     @GetMapping("/list")
     public Map<String, Object> getUserList(Integer pageNumber, Integer pageSize, String searchText) {
         Map<String, Object> result = new HashMap<String, Object>();
@@ -64,7 +63,6 @@ public class SysRoleController {
      * @param role
      * @return
      */
-    @ResponseBody
     @PostMapping("/add")
     public R addRole(Role role) {
         return iRoleService.save(role) ? R.ok("添加成功") : R.error("添加失败");
@@ -76,7 +74,6 @@ public class SysRoleController {
      * @param role
      * @return
      */
-    @ResponseBody
     @PostMapping("/update")
     public R updateRole(Role role) {
         return iRoleService.updateById(role) ? R.ok("修改成功") : R.error("修改失败");
@@ -88,7 +85,6 @@ public class SysRoleController {
      * @param ids
      * @return
      */
-    @ResponseBody
     @GetMapping("/delete")
     public R delete(@RequestParam(value = "ids", required = false) String ids) {
         if (StringUtil.isEmpty(ids)) {
@@ -102,7 +98,6 @@ public class SysRoleController {
      *
      * @return
      */
-    @ResponseBody
     @GetMapping("/getUserRole")
     public R getUserRole(@RequestBody User user) {
         QueryWrapper<UserRole> wrapper = new QueryWrapper<>();
@@ -116,7 +111,6 @@ public class SysRoleController {
      *
      * @return
      */
-    @ResponseBody
     @GetMapping("/modifyUserRole")
     public R modifyUserRole(@RequestBody List<UserRole> userRoles) {
         return iRoleService.modifyUserRole(userRoles) ? R.ok("分配成功") : R.error("分配失败");
